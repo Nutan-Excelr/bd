@@ -1,0 +1,310 @@
+# ==========================================
+# Program: Perform String Operations in R
+# ==========================================
+
+# 1. Creating a string
+text1 <- "Data"
+text2 <- "Science"
+
+# 2. Concatenation
+combined1 <- paste(text1, text2)                # with space
+combined2 <- paste(text1, text2, sep = "-")     # with hyphen
+combined3 <- paste0(text1, text2)               # no space
+
+# 3. String Length
+len <- nchar(combined1)
+
+# 4. Convert to Upper and Lower case
+upper_text <- toupper(combined1)
+lower_text <- tolower(combined1)
+
+# 5. Extract Substring
+sub_text <- substr("Programming", 1, 5)         # extracts "Progr"
+
+# 6. Replace a part of string
+replaced_text <- gsub("Science", "Analytics", combined1)
+
+# 7. Splitting a string
+split_result <- strsplit("A,B,C,D", split = ",")
+
+# 8. Trimming spaces
+raw_text <- "   R Programming   "
+trimmed_text <- trimws(raw_text)
+
+# 9. Pattern Matching
+pattern_found <- grepl("Data", combined1)
+
+# ---- Output all results ----
+cat("Concatenation 1:", combined1, "\n")
+cat("Concatenation 2:", combined2, "\n")
+cat("Concatenation 3:", combined3, "\n\n")
+
+cat("Length of String:", len, "\n\n")
+
+cat("Upper Case:", upper_text, "\n")
+cat("Lower Case:", lower_text, "\n\n")
+
+cat("Substring Extracted:", sub_text, "\n\n")
+
+cat("Replaced Text:", replaced_text, "\n\n")
+
+cat("Split Result:", split_result, "\n\n")
+
+cat("Trimmed Text:", trimmed_text, "\n\n")
+
+cat("Pattern Found:", pattern_found, "\n")
+# ==========================================
+# Program: Implementation of List in R
+# ==========================================
+
+# 1. Creating a List
+my_list <- list(
+  name = "Ganesh",
+  age = 21,
+  marks = c(85, 90, 88),
+  passed = TRUE
+)
+
+# 2. Printing the List
+print("Complete List:")
+print(my_list)
+
+# 3. Accessing List Elements
+print("Access Name Element:")
+print(my_list$name)
+
+print("Access Age Element:")
+print(my_list$age)
+
+print("Access Marks Element:")
+print(my_list$marks)
+
+# 4. Adding new element to List
+my_list$course <- "Data Science"
+print("List After Adding Element:")
+print(my_list)
+
+# 5. Removing an element from List
+my_list$passed <- NULL
+print("List After Removing 'passed' Element:")
+print(my_list)
+
+# 6. Updating List Element
+my_list$age <- 22
+print("List After Updating Age:")
+print(my_list)
+
+# 7. Merging Two Lists
+list1 <- list(a = 1, b = 2)
+list2 <- list(c = 3, d = 4)
+
+merged_list <- c(list1, list2)
+print("Merged List:")
+print(merged_list)
+# ==========================================
+# Program: Check Even or Odd using Function
+# ==========================================
+
+# Function definition
+checkEvenOdd <- function(num) {
+  if (num %% 2 == 0) {
+    return("The number is Even")
+  } else {
+    return("The number is Odd")
+  }
+}
+
+# Taking input from user (optional for exam)
+num <- as.integer(readline(prompt = "Enter a number: "))
+
+# Calling the function
+result <- checkEvenOdd(num)
+
+# Display the result
+print(result)
+# ==========================================
+# Program: Implementation of Matrices in R
+# ==========================================
+
+# 1. Creating a Matrix
+mat1 <- matrix(c(1, 2, 3, 4, 5, 6), 
+               nrow = 2, 
+               ncol = 3,
+               byrow = TRUE)
+print("Matrix 1:")
+print(mat1)
+
+# 2. Accessing Matrix Elements
+print("Element at Row 1, Column 2:")
+print(mat1[1, 2])
+
+# 3. Adding Two Matrices
+mat2 <- matrix(c(6, 5, 4, 3, 2, 1),
+               nrow = 2,
+               ncol = 3,
+               byrow = TRUE)
+
+print("Matrix 2:")
+print(mat2)
+
+mat_add <- mat1 + mat2
+print("Addition of Matrix 1 and Matrix 2:")
+print(mat_add)
+
+# 4. Subtraction of Matrices
+mat_sub <- mat1 - mat2
+print("Subtraction of Matrix 1 and Matrix 2:")
+print(mat_sub)
+
+# 5. Matrix Multiplication
+# (Only valid if dimensions match)
+mat3 <- matrix(c(1, 2,
+                 3, 4,
+                 5, 6),
+               nrow = 3,
+               ncol = 2,
+               byrow = TRUE)
+
+print("Matrix 3:")
+print(mat3)
+
+mat_mul <- mat1 %*% mat3
+print("Matrix Multiplication (mat1 %*% mat3):")
+print(mat_mul)
+
+# 6. Transpose of Matrix
+mat_trans <- t(mat1)
+print("Transpose of Matrix 1:")
+print(mat_trans)
+# ==========================================
+# Program: Implementation of Vector in R
+# ==========================================
+
+# 1. Creating Vectors
+vec_num <- c(10, 20, 30, 40, 50)        # Numeric vector
+vec_char <- c("Apple", "Banana", "Mango")   # Character vector
+vec_logical <- c(TRUE, FALSE, TRUE)    # Logical vector
+
+print("Numeric Vector:")
+print(vec_num)
+
+print("Character Vector:")
+print(vec_char)
+
+print("Logical Vector:")
+print(vec_logical)
+
+# 2. Accessing Vector Elements
+print("Access 3rd element of numeric vector:")
+print(vec_num[3])
+
+# 3. Modifying Vector Elements
+vec_num[2] <- 25
+print("Numeric Vector after modification:")
+print(vec_num)
+
+# 4. Adding New Element to Vector
+vec_num <- c(vec_num, 60)
+print("Numeric Vector after adding new element:")
+print(vec_num)
+
+# 5. Vector Arithmetic
+vec_a <- c(1, 2, 3, 4)
+vec_b <- c(5, 6, 7, 8)
+
+add_result <- vec_a + vec_b
+sub_result <- vec_a - vec_b
+mul_result <- vec_a * vec_b
+div_result <- vec_a / vec_b
+
+print("Vector Addition:")
+print(add_result)
+
+print("Vector Subtraction:")
+print(sub_result)
+
+print("Vector Multiplication:")
+print(mul_result)
+
+print("Vector Division:")
+print(div_result)
+
+# 6. Sequence Vector
+seq_vec <- seq(1, 10, by = 2)
+print("Sequence Vector:")
+print(seq_vec)
+
+# 7. Repeat Vector
+rep_vec <- rep(3, times = 5)
+print("Repeat Vector:")
+print(rep_vec)
+# ==========================================
+# Program: Sum of Series of Numbers in R
+# ==========================================
+
+# Function to calculate sum of series
+sumSeries <- function(n) {
+  sum <- 0
+  
+  for (i in 1:n) {
+    sum <- sum + i
+  }
+  
+  return(sum)
+}
+
+# Taking input from user
+n <- as.integer(readline(prompt = "Enter the value of n: "))
+
+# Calling the function
+result <- sumSeries(n)
+
+# Display result
+cat("Sum of series 1 + 2 + ... +", n, "=", result)
+# ==========================================
+# Program: Implementation of Data Frames in R
+# ==========================================
+
+# 1. Creating a Data Frame
+student_data <- data.frame(
+  Name = c("Rahul", "Sneha", "Amit", "Priya"),
+  Age = c(20, 21, 19, 22),
+  Marks = c(85, 92, 78, 88)
+)
+
+# Printing the Data Frame
+print("Student Data Frame:")
+print(student_data)
+
+# 2. Accessing Columns
+print("Accessing Name Column:")
+print(student_data$Name)
+
+# 3. Accessing Specific Row and Column
+print("Element at Row 2, Column 3 (Marks of Sneha):")
+print(student_data[2, 3])
+
+# 4. Adding a New Column
+student_data$Grade <- c("A", "A+", "B", "A")
+print("Data Frame After Adding Grade Column:")
+print(student_data)
+
+# 5. Adding a New Row
+new_row <- data.frame(Name = "Kiran", Age = 23, Marks = 90, Grade = "A+")
+student_data <- rbind(student_data, new_row)
+print("Data Frame After Adding New Row:")
+print(student_data)
+
+# 6. Updating a Value in Data Frame
+student_data$Marks[3] <- 80   # Change Amit's marks
+print("Data Frame After Updating Marks:")
+print(student_data)
+
+# 7. Removing a Column
+student_data$Age <- NULL
+print("Data Frame After Removing Age Column:")
+print(student_data)
+
+# 8. Summary of Data Frame
+print("Summary of Data Frame:")
+print(summary(student_data))
