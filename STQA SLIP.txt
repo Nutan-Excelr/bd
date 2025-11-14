@@ -1,0 +1,95 @@
+9.Perform Automation testing for launching and closing website using Selenium and IntelliJ.
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class one
+{
+    public static void main(String[] args)
+    {
+        System.setProperty("webdriver.chrome.driver", "D:\\Driver\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe\\");
+        WebDriver driver =new ChromeDriver();
+        driver.get("https://www.cricbuzz.com/");
+    }
+}
+
+
+10.Perform Automation testing for login page using Selenium and IntelliJ.
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test2 {
+    WebDriver driver;
+
+    public void driverseting() {
+        System.setProperty("webdriver.chrome.driver", "D:\\Driver\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe\\"); // change if needed
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void navigate() {
+        driver.get("https://www.linkedin.com/login"); // ✅ open login page instead
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // ✅ Correct LinkedIn locators
+        driver.findElement(By.name("session_key")).sendKeys("mehraj@gmail.com");
+        driver.findElement(By.name("session_password")).sendKeys("123456mik");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+    }
+
+    public static void main(String[] args) {
+        Test2 obj = new Test2();
+        obj.driverseting();
+        obj.navigate();
+    }
+}
+
+11.Perform Automation testing for searching a particular keyword on website using Selenium and IntelliJ.
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class sampleapp {
+    public static void main(String[] args) throws InterruptedException {
+
+        System.setProperty("webdriver.chrome.driver", "D:\\Driver\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+
+        WebDriver driver = new ChromeDriver();
+        driver.navigate().to("https://www.youtube.com/");
+        driver.manage().window().maximize();
+
+        Thread.sleep(2000);
+
+        // ✅ Type search keyword + press ENTER
+        driver.findElement(By.name("search_query")).sendKeys("hello", Keys.ENTER);
+
+        Thread.sleep(2000);
+
+        // ✅ Also click search button (for safety)
+        driver.findElement(By.id("search-icon-legacy")).click();
+
+        Thread.sleep(3000);
+
+        // ✅ Scroll down
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("scrollBy(0,3000)");
+
+        Thread.sleep(2000);
+
+        // ✅ Click first video
+        driver.findElement(By.xpath("(//a[@id='video-title'])[1]")).click();
+    }
+}
